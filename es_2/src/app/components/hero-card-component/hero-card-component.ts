@@ -11,10 +11,15 @@ export class HeroCardComponent {
 
   @Input() hero!: Hero;
   @Output() onMissionDone = new EventEmitter<Hero>();
+  
 
   notifyParent() {
 
     this.onMissionDone.emit(this.hero);
+  }
+
+  changeInfo(){
+
   }
 }
 

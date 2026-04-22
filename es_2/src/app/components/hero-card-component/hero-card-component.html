@@ -1,10 +1,23 @@
-<p>hero-card-component works!</p>
+<div [class]="'max-w-sm p-6 border rounded-xl shadow-md transition-all duration-300 ' + 
+               (hero.completata ? 'bg-green-50 border-green-200' : 'bg-white border-gray-200')">
 
-<div class="card" [style.background-color]="hero.completata ? 'lightgreen'
-: 'white'">
-<h3>{{ hero.nome }}</h3>
-<p>Potere: {{ hero.potere }}</p>
-<button (click)="notifyParent()" [disabled]="hero.completata">
-Missione Compiuta
-</button>
+
+    <button (click)="changeInfo()"
+        class="text-xl font-bold text-gray-800 hover:text-blue-600 transition-colors mb-2 focus:outline-none">
+        {{ hero.nome }}
+    </button>
+
+
+    <p class="text-gray-600 text-sm mb-4">
+        <span class="font-semibold text-gray-400 uppercase text-xs tracking-wider">Potere:</span><br>
+        {{ hero.potere }}
+    </p>
+
+
+    <button (click)="notifyParent()" [disabled]="hero.completata" [class]="'w-full py-2 px-4 rounded-lg font-medium transition-all ' + 
+                     (hero.completata 
+                      ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
+                      : 'bg-blue-600 text-white hover:bg-blue-700 active:scale-95 shadow-lg shadow-blue-200')">
+        {{ hero.completata ? '✓ Completata' : 'Missione Compiuta' }}
+    </button>
 </div>

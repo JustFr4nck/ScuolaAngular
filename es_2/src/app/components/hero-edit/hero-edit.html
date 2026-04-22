@@ -1,0 +1,38 @@
+<div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 max-w-md mx-auto">
+  <div class="space-y-4">
+
+    <div>
+      <label class="block text-xs font-bold text-gray-500 uppercase mb-1 ml-1">Nome Eroe</label>
+      <input 
+        name="name" 
+        [(ngModel)]="hero.nome" 
+        placeholder="Es. Iron Man"
+        class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+      />
+    </div>
+
+
+    <div>
+      <label class="block text-xs font-bold text-gray-500 uppercase mb-1 ml-1">Potere Speciale</label>
+      <input 
+        name="potere" 
+        [(ngModel)]="hero.potere" 
+        placeholder="Descrivi il potere..."
+        class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+      />
+    </div>
+
+
+    <div class="p-3 bg-gray-50 rounded-md">
+      <p class="text-[10px] font-mono text-gray-400 mb-1">Dati in tempo reale:</p>
+      <pre class="text-xs text-blue-600 font-mono overflow-auto">{{ hero | json }}</pre>
+    </div>
+
+
+    <button 
+      (click)="sendHero()" 
+      class="w-full bg-gray-900 text-white font-bold py-3 rounded-lg hover:bg-black active:scale-[0.98] transition-all shadow-lg flex items-center justify-center gap-2">
+      <span>🚀</span> {{ hero.id ? 'Salva Modifiche' : 'Aggiungi Eroe' }}
+    </button>
+  </div>
+</div>
