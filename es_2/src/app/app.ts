@@ -1,10 +1,12 @@
 
 import { Component, signal } from '@angular/core';
 import { HeroListComponent } from './components/hero-list-component/hero-list-component';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [HeroListComponent],
+  standalone: true,
+  imports: [HeroListComponent, RouterOutlet, RouterLink],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
