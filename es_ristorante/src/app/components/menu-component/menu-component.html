@@ -1,0 +1,32 @@
+<div class="min-h-screen bg-gray-50 py-10 px-4">
+  <div class="max-w-md mx-auto">
+
+    <header class="mb-8 text-center">
+      <h2 class="text-3xl font-extrabold text-gray-900 tracking-tight">
+        Angular <span class="text-indigo-600">Gourmet</span>
+      </h2>
+      <p class="text-gray-500 mt-2">Seleziona i tuoi piatti preferiti</p>
+    </header>
+
+    <div class="space-y-2">
+      <app-dish-item-component
+        *ngFor="let p of piatti"
+        [piatto]="p"
+        (cambioQuantita)="aggiornaOrdine($event, p)">
+      </app-dish-item-component>
+    </div>
+
+    <div class="mt-8 p-6 bg-indigo-600 rounded-2xl shadow-xl text-white flex justify-between items-center">
+      <div>
+        <p class="text-indigo-100 text-sm uppercase tracking-wider font-semibold">Totale Conto</p>
+        <h3 class="text-3xl font-bold">{{ totale | currency:'EUR' }}</h3>
+      </div>
+      <button
+        [disabled]="totale === 0"
+        class="bg-white text-indigo-600 px-6 py-2 rounded-xl font-bold hover:bg-indigo-50 transition-colors disabled:opacity-50">
+        Ordina
+      </button>
+    </div>
+
+  </div>
+</div>
