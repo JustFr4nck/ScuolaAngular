@@ -1,39 +1,78 @@
-<div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 max-w-md mx-auto">
-  <div class="space-y-4">
+<div class="min-h-[600px] flex items-center justify-center p-6 bg-slate-50 rounded-[2.5rem] relative overflow-hidden">
+  
+ 
+  <div class="absolute top-[-10%] left-[-10%] w-72 h-72 bg-purple-200 rounded-full blur-[120px] opacity-50"></div>
+  <div class="absolute bottom-[-10%] right-[-10%] w-72 h-72 bg-blue-200 rounded-full blur-[120px] opacity-50"></div>
 
-    <div>
-      <label class="block text-xs font-bold text-gray-500 uppercase mb-1 ml-1">Nome Eroe</label>
-      <input 
-        name="name" 
-        [(ngModel)]="hero.nome" 
-        placeholder="Es. Iron Man"
-        class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all placeholder:text-gray-300"
-      />
+  <div class="relative w-full max-w-md bg-white/80 backdrop-blur-xl p-10 rounded-3xl shadow-[0_32px_64px_-12px_rgba(0,0,0,0.1)] border border-white">
+    
+
+    <div class="text-center mb-10">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-tr from-indigo-600 to-violet-500 rounded-2xl shadow-lg mb-4 transform -rotate-6 hover:rotate-0 transition-transform duration-300">
+        <span class="text-3xl">{{ hero.id ? '🛠️' : '🧬' }}</span>
+      </div>
+      <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">
+        {{ hero.id ? 'Edit Hero' : 'New Identity' }}
+      </h2>
+      <p class="text-slate-500 text-sm mt-2 font-medium">Configura i parametri del tuo meta-umano</p>
     </div>
 
+    <div class="space-y-8">
+     
+      <div class="group">
+        <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-2 ml-1 transition-colors group-focus-within:text-indigo-600">
+          Nome dell'eroe
+        </label>
+        <div class="relative">
+          <input 
+            name="name" 
+            [(ngModel)]="hero.nome" 
+            placeholder="Es. Shadow Weaver"
+            class="w-full px-5 py-4 bg-slate-100/50 border border-transparent rounded-2xl focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all font-semibold text-slate-800 placeholder:text-slate-300"
+          />
+        </div>
+      </div>
 
-    <div>
-      <label class="block text-xs font-bold text-gray-500 uppercase mb-1 ml-1">Potere Speciale</label>
-      <input 
-        name="potere" 
-        [(ngModel)]="hero.potere" 
-        placeholder="Descrivi il potere..."
-        class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all placeholder:text-gray-300"
-      />
+   
+      <div class="group">
+        <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-2 ml-1 transition-colors group-focus-within:text-indigo-600">
+          Abilità Primaria
+        </label>
+        <input 
+          name="potere" 
+          [(ngModel)]="hero.potere" 
+          placeholder="Es. Controllo Molecolare"
+          class="w-full px-5 py-4 bg-slate-100/50 border border-transparent rounded-2xl focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all font-semibold text-slate-800 placeholder:text-slate-300"
+        />
+      </div>
+
+     
+      <div class="rounded-2xl bg-slate-900 p-5 shadow-inner">
+        <div class="flex gap-1.5 mb-3">
+          <div class="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+          <div class="w-2.5 h-2.5 rounded-full bg-amber-500/50"></div>
+          <div class="w-2.5 h-2.5 rounded-full bg-emerald-500/50"></div>
+        </div>
+        <pre class="text-[11px] text-indigo-300 font-mono overflow-auto leading-relaxed">
+<span class="text-slate-500">// Manifest.json</span>
+{{ hero | json }}</pre>
+      </div>
+
+  
+      <div class="flex flex-col gap-3">
+        <button 
+          (click)="sendHero()"
+          class="w-full py-4 bg-indigo-600 text-white rounded-2xl font-bold text-sm uppercase tracking-widest hover:bg-indigo-700 hover:shadow-[0_20px_40px_-10px_rgba(79,70,229,0.4)] active:scale-[0.98] transition-all duration-300">
+          {{ hero.id ? 'Salva Configurazione' : 'Inizializza Eroe' }}
+        </button>
+        
+        <button 
+          routerLink="/"
+          class="w-full py-3 text-slate-400 font-bold text-[10px] uppercase tracking-widest hover:text-slate-600 transition-colors">
+          Annulla Operazione
+        </button>
+      </div>
+
     </div>
-
-
-    <div class="p-3 bg-gray-50 rounded-md">
-      <p class="text-[10px] font-mono text-gray-400 mb-1">Dati in tempo reale:</p>
-      <pre class="text-xs text-blue-600 font-mono overflow-auto">{{ hero | json }}</pre>
-    </div>
-
-
-    <button 
-      (click)="sendHero()"
-      [routerLink]="['']"
-      class="w-full bg-gray-900 text-white font-bold py-3 rounded-lg hover:bg-black active:scale-[0.98] transition-all shadow-lg flex items-center justify-center gap-2">
-      <span>🚀</span> {{ hero.id ? 'Salva Modifiche' : 'Aggiungi Eroe' }}
-    </button>
   </div>
 </div>

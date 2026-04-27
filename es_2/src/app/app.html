@@ -1,33 +1,54 @@
+<div class="min-h-screen bg-[#f8fafc]">
 
-<nav class="bg-slate-800 shadow-lg mb-8">
-  <div class="max-w-5xl mx-auto px-4">
-    <div class="flex items-center justify-between h-16">
-      <div class="flex items-center gap-8">
-  
-        <span class="text-white font-bold text-xl tracking-tight">
-          Hero<span class="text-blue-400">Manager</span>
-        </span>
+  <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700/50 shadow-xl">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-20">
+        
+     
+        <div class="flex items-center gap-3 group cursor-pointer" routerLink="/">
+          <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/30 group-hover:rotate-6 transition-transform">
+            <span class="text-white text-xl">🛡️</span>
+          </div>
+          <span class="text-white font-black text-2xl tracking-tighter">
+            HERO<span class="text-blue-400">CORE</span>
+          </span>
+        </div>
 
-        <div class="flex space-x-4">
+
+        <div class="flex items-center gap-2">
           <a routerLink="/" 
-             routerLinkActive="bg-slate-900 text-white" 
-             class="text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
-             🏠 Home
+             routerLinkActive="bg-white/10 text-white" 
+             class="relative group px-5 py-2.5 rounded-xl text-slate-300 text-sm font-bold tracking-wide transition-all hover:text-white">
+             <div class="flex items-center gap-2">
+               <span>🏠</span> Dashboard
+             </div>
+   
+             <div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-blue-400 transition-all group-hover:w-1/2"></div>
           </a>
           
           <a routerLink="/edit" 
-             routerLinkActive="bg-blue-600 text-white"
-             class="text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
-             ➕ Aggiungi Eroe
+             routerLinkActive="bg-blue-600 text-white shadow-lg shadow-blue-500/40"
+             class="px-5 py-2.5 rounded-xl text-slate-300 text-sm font-bold tracking-wide transition-all hover:bg-slate-700 hover:text-white flex items-center gap-2">
+             <span>➕</span> Recluta Eroe
           </a>
         </div>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<main class="max-w-5xl mx-auto px-4 pb-12">
-  <div class="bg-white rounded-xl shadow-md p-6 border border-slate-100">
-    <router-outlet></router-outlet>
-  </div>
-</main>
+
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    <div class="bg-white rounded-[2.5rem] shadow-[0_20px_70px_-10px_rgba(0,0,0,0.1)] border border-slate-100 p-8 md:p-12 min-h-[70vh] relative overflow-hidden transition-all">
+      <div class="absolute top-0 right-0 p-10 opacity-[0.03] pointer-events-none">
+        <svg width="200" height="200" fill="currentColor"><circle cx="100" cy="100" r="100"/></svg>
+      </div>
+      
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+
+  <footer class="text-center pb-8 text-slate-400 text-xs font-medium uppercase tracking-[0.2em]">
+    Terminal System v4.0 // Connection Secure
+  </footer>
+</div>
