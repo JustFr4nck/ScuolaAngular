@@ -30,7 +30,8 @@
 
 
     <button 
-      (click)="sendHero()" 
+      (click)="sendHero()"
+      [routerLink]="['']"
       class="w-full bg-gray-900 text-white font-bold py-3 rounded-lg hover:bg-black active:scale-[0.98] transition-all shadow-lg flex items-center justify-center gap-2">
       <span>🚀</span> {{ hero.id ? 'Salva Modifiche' : 'Aggiungi Eroe' }}
     </button>

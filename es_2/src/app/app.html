@@ -1,8 +1,33 @@
-<nav>
-  <a routerLink="/"></a> 
-  <a routerLink="/modifica"></a> 
+
+<nav class="bg-slate-800 shadow-lg mb-8">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center gap-8">
+  
+        <span class="text-white font-bold text-xl tracking-tight">
+          Hero<span class="text-blue-400">Manager</span>
+        </span>
+
+        <div class="flex space-x-4">
+          <a routerLink="/" 
+             routerLinkActive="bg-slate-900 text-white" 
+             class="text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
+             🏠 Home
+          </a>
+          
+          <a routerLink="/edit" 
+             routerLinkActive="bg-blue-600 text-white"
+             class="text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
+             ➕ Aggiungi Eroe
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </nav>
 
-<div>
-  <router-outlet></router-outlet>
-</div>
+<main class="max-w-5xl mx-auto px-4 pb-12">
+  <div class="bg-white rounded-xl shadow-md p-6 border border-slate-100">
+    <router-outlet></router-outlet>
+  </div>
+</main>
