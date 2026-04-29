@@ -18,33 +18,48 @@ export class HeroEdit {
   hero: Hero = {} as Hero;
   @Output() newHeroAdded = new EventEmitter<Hero>();
 
-  constructor (
-    private route: ActivatedRoute, 
+  constructor(
+    private route: ActivatedRoute,
     private heroService: HeroListaServ,
-    private router: Router 
-  ) {} 
-  
+    private router: Router
+  ) { }
+
   ngOnInit() {
-    this.heroId = Number(this.route.snapshot.paramMap.get('id'));
+
     if (this.heroId) {
-      // Usiamo lo spread operator {...} per non modificare l'originale nel servizio per riferimento
-      this.hero = { ...this.heroService.get(this.heroId) };
+
+      this.heroService.updateHero(this.hero.id, this.hero).subscribe({
+        next: () => {
+          console.log("Hero aggiornato")
+        },
+        error: (err) => console.error('Errore nell\'aggiornamento prodotto', err)
+      });
+
     }
   }
 
   sendHero() {
-    if (!this.heroId) {
-     
-      this.heroService.addMission(this.hero);
+    if (!this.hero.id) {
+
+      this.heroService.addMission(this.hero).subscribe({
+        next: (newHero) => {
+          console.log('Eroe aggiunto con successo:', newHero);
+
+          this.newHeroAdded.emit(newHero);
+
+          this.router.navigate(['/']);
+        },
+        error: (err) => console.error('Errore durante l\'invio:', err)
+      });
+    } else {
+
+      this.router.navigate(['/']);
     }
-  
-    this.router.navigate(['/']); 
+
+
   }
 
-  
+
 }
-
-  
-
 
 

@@ -8,10 +8,9 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <app-hero-card-component *ngFor="let h of heroes" [hero]="h" (onMissionDone)="markAsDone(h)"
+        <app-hero-card-component *ngFor="let h of heroes()" [hero]="h" (onMissionDone)="markAsDone(h)"
             (click)="heroChoose = h" class="cursor-pointer transform hover:-translate-y-1 transition-transform">
         </app-hero-card-component>
     </div>
-   
-</div>
 
+</div>

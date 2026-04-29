@@ -24,7 +24,7 @@ export class HeroCardComponent {
 
  goToModify() {
     if (this.hero && this.hero.id) {
-      this.router.navigate(['/edit', this.hero.id]);
+      this.router.navigate([`/edit`, this.hero.id]);
     }
   }
 }
